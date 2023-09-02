@@ -68,7 +68,7 @@ x-airflow-common:
     - ./staging_data:/opt/staging_data
     - ./dbt:/opt/dbt
     - ./:/opt/
-    - ./profiles_dir:/home/airflow/.dbt/
+    - ./profiles-example.yml:/home/airflow/.dbt/profiles.yml
     - ./postgres-data:/var/lib/postgresql_data/data
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
@@ -94,8 +94,11 @@ services:
     restart: always
 
   # dbt:
-  #   build: .
-  #   command: ["cd /opt"]
+  #   build:
+  #     context: .
+  #     dockerfile: ./profiles_dir/Dockerfile
+  #   # command: ["dbt deps", "dbt docs generate && dbt docs serve --port 9000"]
+  #   # command: ["dbt debug"]
   #   ports:
   #     - 9000:9000
   #   restart: always

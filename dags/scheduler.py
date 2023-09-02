@@ -27,7 +27,7 @@ with DAG(
     )
     test_script = BashOperator(
         task_id = 'test_bash',
-        bash_command = 'ls -la /opt/ingest_scripts/'
+        bash_command = 'pwd'
     )
     pre_ingest_scripts = PostgresOperator(
         task_id = 'create_schemas',
@@ -39,5 +39,10 @@ with DAG(
         postgres_conn_id = POSTGRES_CONN,
         sql = "/ingest_data.sql"
     )
+    dbt_test = BashOperator(
+        task_id = 'dbt_run',
+        cwd = '/opt',
+        bash_command = 'dbt run'
+    )
     
-start >> pre_ingest_scripts >> test_script >> ingest_data
+start >> pre_ingest_scripts >> test_script >> ingest_data >> dbt_test
