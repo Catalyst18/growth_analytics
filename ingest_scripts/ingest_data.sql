@@ -3,7 +3,8 @@ DROP TABLE IF EXISTS raw.conversions;
 CREATE TABLE IF NOT EXISTS raw.conversions
 (
   userid BIGINT,
-  registration_time      TIMESTAMP
+  registration_time      TIMESTAMP,
+  __insert_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 COPY raw.conversions (userid, registration_time)
@@ -18,7 +19,8 @@ CREATE TABLE IF NOT EXISTS raw.sessions
   userid BIGINT,
   time_started      TIMESTAMP,
   is_paid BOOLEAN,
-  medium VARCHAR
+  medium VARCHAR,
+  __insert_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 COPY raw.sessions (userid, time_started,is_paid,medium)

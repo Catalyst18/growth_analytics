@@ -1,0 +1,22 @@
+growth_analytics:
+  outputs:
+    dev:
+      type: postgres
+      threads: 10
+      host: growth_analytics-postgres_miro-1
+      port: 5432
+      user: analyticsuser
+      pass: miro
+      dbname: miro_db
+      schema: public
+    prod:
+      type: postgres
+      threads: [1 or more]
+      host: [host]
+      port: [port]
+      user: [prod_username]
+      pass: [prod_password]
+      dbname: [dbname]
+      schema: [prod_schema]
+
+  target: dev
