@@ -1,0 +1,8 @@
+version: 2
+
+#sources: These are the source system tables which are directly used in the ETL processes.
+sources:
+  - name: raw
+    tables:
+      - name: conversions
+      - name: sessions
