@@ -5,7 +5,7 @@
 {{ config(store_failures = true) }}
 
 select distinct userid from (
-select userid from raw.conversions c 
+select userid from {{ source('raw','conversions') }} c 
 except
-select userid from raw.sessions s
+select userid from {{ source('raw','sessions') }} s
 ) as t -- 96785

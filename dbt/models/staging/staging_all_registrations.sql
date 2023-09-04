@@ -6,6 +6,7 @@
 }}
 
 select
+    md5(userid||'-'||registration_time) as registration_sk,
     userid,
     registration_time,
     __insert_timestamp as __insert_timestamp_source,

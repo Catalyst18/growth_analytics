@@ -1,4 +1,5 @@
 -- create raw schema which is the landing zone which reflects the source database
+DROP SCHEMA IF EXISTS raw CASCADE;
 
 CREATE SCHEMA IF NOT EXISTS raw AUTHORIZATION analyticsuser;
 
