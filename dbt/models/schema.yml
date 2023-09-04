@@ -6,3 +6,18 @@ sources:
     tables:
       - name: conversions
       - name: sessions
+        tests:
+          - unique:
+              column_name: "(userid||'-'||time_started||'-'||medium)"
+              
+
+models:
+  - name: staging_all_sessions
+    description: Staging all sessions from different channels
+    columns:
+      - name: session_sk
+        description: The surrogate key for the all_sessions table
+        tests:
+          - unique
+          - not_null
+
