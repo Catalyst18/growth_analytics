@@ -1,6 +1,6 @@
 -- # Create db
 create database miro_db;
--- #createdb brenntag_snowflake
+-- #createdb
 
 -- # Create user
 create user analyticsuser;
