@@ -3,3 +3,4 @@ logs/
 target/
 *.pyc
 edr_target/
+dags/__pycache__/*
